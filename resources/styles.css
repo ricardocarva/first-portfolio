@@ -1,0 +1,61 @@
+
+#profile-photo{
+  text-align: center;
+}
+
+img {
+	border-radius:50%;
+	text-align: center;
+  width: 150px;
+  height: 150px;
+}
+nav li {
+  text-align: left;
+  text-decoration: none;
+  list-style-image: none;
+  list-style-type: none;
+  text-decoration-color: black;
+
+}
+
+nav li ul {
+  padding-left: 0 0;
+
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color:gray;
+}
+
+body {
+  background: lightgrey;
+  padding: 25px;
+  font-family: sans-serif;
+  margin-bottom: 150px;
+}
+
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+text-align: center;
+width: 20%;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+footer {
+  z-index: 1;
+  background-color: gray;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+}
