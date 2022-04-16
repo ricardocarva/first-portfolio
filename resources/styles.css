@@ -51,6 +51,7 @@ h1 {
 
 
 footer {
+  text-align: center;
   z-index: 1;
   background-color: gray;
   width: 100%;
@@ -58,4 +59,24 @@ footer {
   bottom: 0;
   left: 0;
   height: 80px;
+  vertical-align: middle;
+}
+
+header {
+  position: fixed;
+  background-color: gray;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+  
+}
+
+header h1 {
+  text-align: center;
+}
+
+main {
+  margin-top: 300px;
 }
