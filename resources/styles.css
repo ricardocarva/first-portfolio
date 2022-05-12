@@ -11,13 +11,19 @@ img {
 }
 
 
-a:hover{
-  text-decoration: none;
-
-}
 
 a {
   cursor: pointer;
+}
+a:hover{
+  text-decoration: none;
+}
+a:visited {
+  color: #466995;
+}
+
+a:active {
+  color: #DBE9EE;
 }
 body {
   background: lightgrey;
