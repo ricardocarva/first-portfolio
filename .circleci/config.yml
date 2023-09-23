@@ -43,7 +43,7 @@ jobs:
             git clone --branch=main https://github.com/ricardocarva/portfolio.git
             cd portfolio
             git merge "$current_branch"
-            git push origin main
+            git push origin/"$CIRCLE_BRANCH" main
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
