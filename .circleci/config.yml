@@ -41,11 +41,10 @@ jobs:
           name: Navigate to 'src' directory
           command: |
             pwd
-            cd src
-            node link-check.js
-      # - run:
-      #     name: Check Links
-      #     command: node link-check.js
+            cd src            
+      - run:
+          name: Check Links
+            node link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
