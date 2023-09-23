@@ -15,8 +15,30 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
+          name: "hello all"
           command: "echo Hello, World!"
+  build:
+    docker:
+      - image: circleci/node:14  # Choose an appropriate Node.js version
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install  # or yarn install, depending on your setup
+      - run:
+          name: Build Website
+          command: npm run build  # Replace with your build command
+- run:
+        name: Deploy to GitHub Pages
+        command: |
+          git config --global user.email "ricardofecarva@gmail.com"
+          git config --global user.name "ricardocarva"
+          git clone --branch=gh-pages https://github.com/ricardocarva/repo.git gh-pages
+          cp -R dist/* gh-pages/
+          cd gh-pages
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push origin gh-pages
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
