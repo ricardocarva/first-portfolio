@@ -38,6 +38,9 @@ jobs:
           name: Install Dependencies
           command: npm install html-proofer --save-dev
       - run:
+          name: Navigate to 'src' directory
+          command: cd src
+      - run:
           name: Check Links
           command: node ./src/link-check.js
 
