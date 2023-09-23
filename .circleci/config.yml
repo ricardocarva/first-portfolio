@@ -39,8 +39,7 @@ jobs:
           command: |
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
-            current_branch="$CIRCLE_BRANCH"
-            git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
+            git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
             cd gh-pages
             git add .
             git commit -m "Deploy to GitHub Pages"
@@ -57,6 +56,8 @@ workflows:
       - build
       
             # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
+  # current_branch="$CIRCLE_BRANCH"
+  #           git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
 
 
             #                 current_branch=$(git rev-parse --abbrev-ref HEAD)
