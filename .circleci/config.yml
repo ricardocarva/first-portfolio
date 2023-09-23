@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Check Links
           command: |
-            cd $CIRCLE_WORKING_DIRECTORY 
+            cd src
             node src/link-checker.js
 
 # Orchestrate jobs using workflows
