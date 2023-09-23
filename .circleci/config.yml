@@ -44,7 +44,7 @@ jobs:
             cd src
       - run:
           name: Check Links
-          command: node ./src/link-check.js
+          command: node link-check.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
