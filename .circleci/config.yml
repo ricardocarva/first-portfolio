@@ -5,7 +5,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  tests:
+  build:
     docker:
       - image: cimg/base:stable  # Choose an appropriate Node.js version
     steps:
@@ -39,7 +39,7 @@ jobs:
           command: npm install html-proofer --save-dev
       - run:
           name: Check Links
-          command: node link-check.js
+          command: node ./src/link-check.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
