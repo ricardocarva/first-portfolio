@@ -38,15 +38,8 @@ jobs:
           name: Install Dependencies
           command: npm install html-proofer --save-dev
       - run:
-          name: Navigate to 'src' directory
-          command: |
-            pwd
-            cd src
-            pwd
-            ls -ltr
-      - run:
           name: Check Links
-          command: pwd && node src/link-checker.js
+          command: node src/link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
