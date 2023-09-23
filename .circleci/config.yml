@@ -48,7 +48,7 @@ jobs:
               git checkout main
               git merge "$current_branch"
             fi
-            git push origin/"$CIRCLE_BRANCH" main
+            git push "$CIRCLE_BRANCH" main
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
