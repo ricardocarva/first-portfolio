@@ -42,7 +42,12 @@ jobs:
             current_branch="$CIRCLE_BRANCH"
             git clone --branch=main https://github.com/ricardocarva/portfolio.git
             cd portfolio
-            git merge "$current_branch"
+            git fetch origin
+            if [ "$current_branch" != "main" ]; then
+              git checkout -b "$current_branch" origin/"$current_branch"
+              git checkout main
+              git merge "$current_branch"
+            fi
             git push origin/"$CIRCLE_BRANCH" main
 
 # Orchestrate jobs using workflows
@@ -60,6 +65,7 @@ workflows:
             # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
   # current_branch="$CIRCLE_BRANCH"
   #           git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
+            # git merge "$current_branch"
 
 
             #                 current_branch=$(git rev-parse --abbrev-ref HEAD)
