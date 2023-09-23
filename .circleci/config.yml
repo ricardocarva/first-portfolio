@@ -29,17 +29,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update npm
-          command: sudo apt-get update
-      - run:
-          name: Install npm
-          command: sudo apt-get install npm
-      - run:
           name: Install Dependencies
-          command: npm install html-proofer --save-dev
+          command: npm install html-proofer
       - run:
           name: Check Links
-          command: node src/link-checker.js
+            cd $CIRCLE_WORKING_DIRECTORY 
+            node src/link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
