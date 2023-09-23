@@ -34,6 +34,11 @@ jobs:
       - run:
           name: npx jest Test
           command: npx jest
+  deploy-to-gh-pages:
+      docker:
+        - image: cimg/base:stable
+      steps:
+        - checkout
       - run:
           name: Deploy to GitHub Pages
           command: |
@@ -59,9 +64,12 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  build:
+  build-and-deploy:
     jobs:
       - build
+      - deploy-to-gh-pages:
+          requires:
+            - build
                   # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
             # cd gh-pages
 
