@@ -1,6 +1,6 @@
 {
   "devDependencies": {
     "jest": "^27.0.6",
-    "html-proofer": "5.0.8" 
+    "html-proofer": "0.0.1" 
   }
 }
