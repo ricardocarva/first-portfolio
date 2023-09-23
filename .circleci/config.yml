@@ -5,18 +5,6 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "hello all"
-          command: "echo Hello, World!"
   build:
     docker:
       - image: cimg/base:stable  # Choose an appropriate Node.js version
@@ -34,27 +22,11 @@ jobs:
       - run:
           name: npx jest Test
           command: npx jest
-      - run:
-          name: Deploy to GitHub Pages
-          command: |
-            git config --global user.email "ricardofecarva@gmail.com"
-            git config --global user.name "ricardocarva"
-            git clone --branch=main https://github.com/ricardocarva/portfolio.git main
-            cp -R dist/* main/
-            cd main
-            git add .
-            git commit -m "Deploy to GitHub Pages"
-            git push origin main
+
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
-  build:
+  build-and-deploy:
     jobs:
       - build
-
-            #       git checkout -b main
-            # git remote set-url origin https://github.com/ricardocarva/portfolio.git
