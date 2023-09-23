@@ -44,14 +44,17 @@ jobs:
       #     name: Build Website
       #     command: npm run build  # Replace with your build command
       - run:
-          name: Test
+          name: npx jest Test
           command: npx jest
+      - run:
+          name: npm Test
+          command: npm test
       - run:
           name: Deploy to GitHub Pages
           command: |
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
-            git clone --branch=gh-pages https://github.com/ricardocarva/repo.git gh-pages
+            git clone --branch=gh-pages https://github.com/ricardocarva/portfolio.git gh-pages
             cp -R dist/* gh-pages/
             cd gh-pages
             git add .
