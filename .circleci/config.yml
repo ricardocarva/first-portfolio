@@ -28,6 +28,9 @@ jobs:
       - image: cimg/base:stable  # Choose an appropriate Node.js version
     steps:
       - checkout
+        - run:
+          name: Update npm
+          command: sudo apt-get update
       - run:
           name: Install npm
           command: sudo apt-get install npm
