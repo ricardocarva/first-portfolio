@@ -41,7 +41,8 @@ jobs:
           name: Navigate to 'src' directory
           command: |
             pwd
-            cd src            
+            cd src
+            ls -ltr
       - run:
           name: Check Links
           command: node link-checker.js
