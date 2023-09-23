@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
   build:
     docker:
-      - image: circleci/node:14  # Choose an appropriate Node.js version
+      - image: cimg/base:stable  # Choose an appropriate Node.js version
     steps:
       - checkout
       - run:
