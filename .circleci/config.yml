@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run:
           name: Install npm
-          command: apt-get install npm
+          command: sudo apt-get install npm
       - run:
           name: Install Dependencies
           command: npm install  # or yarn install, depending on your setup
