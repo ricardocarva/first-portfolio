@@ -34,9 +34,9 @@ jobs:
       # - run:
       #     name: Change workdirectory
       #     command: cd /home/circleci/project
-      - run:
-          name: Init npm
-          command: npm init
+      # - run:
+      #     name: Init npm
+      #     command: npm init
       - run:
           name: Install Dependencies
           command: npm install --save-dev jest # or yarn install, depending on your setup
