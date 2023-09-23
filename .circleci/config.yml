@@ -18,15 +18,35 @@ jobs:
           command: sudo apt-get install npm
       - run:
           name: Install Dependencies
-          command: npm install --save-dev jest # or yarn install, depending on your setup
+          command: npm install --save-dev jest
       - run:
           name: npx jest Test
           command: npx jest
 
+  check-links:
+    docker:
+          - image: cimg/base:stable  # Choose an appropriate Node.js version
+        steps:
+          - checkout
+          - run:
+              name: Update npm
+              command: sudo apt-get update
+          - run:
+              name: Install npm
+              command: sudo apt-get install npm
+          - run:
+              name: Install Dependencies
+              command: npm install html-proofer --save-dev
+          - run:
+            name: Check Links
+            command: node link-check.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  build-and-deploy:
+  tests:
     jobs:
       - build
+  link-checker:
+    jobs:
+      - check-links
