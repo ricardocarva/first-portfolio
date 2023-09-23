@@ -39,9 +39,7 @@ jobs:
           command: npm install html-proofer
       - run:
           name: Check Links
-          command: |
-            cd src
-            node src/link-checker.js
+          command: node src/link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
