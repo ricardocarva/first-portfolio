@@ -1,9 +1,9 @@
 const HTMLProofer = require('html-proofer');
 
 const proofer = new HTMLProofer({
-  directory: '.', // Replace with the path to your built HTML files
+  directory: 'build', // Replace with the path to your built HTML files
   checkExternal: true,
-  url-ignore: ['/example-ignore'], // Optional: specify URLs to ignore
+  "url-ignore": ['/example-ignore'], // Optional: specify URLs to ignore
 });
 
 proofer.run((err, output) => {
