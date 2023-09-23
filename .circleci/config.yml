@@ -23,6 +23,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Create file path
+          command: mkdir -p /home/circleci/project
+      - run:
+          name: Change workdirectory
+          command: cd /home/circleci/project
+      - run:
+          name: Init npm
+          command: npm init
+      - run:
           name: Update npm
           command: sudo apt-get update
       - run:
