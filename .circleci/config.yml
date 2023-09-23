@@ -22,9 +22,9 @@ jobs:
       - image: cimg/base:stable  # Choose an appropriate Node.js version
     steps:
       - checkout
-      - run:
-          name: Init
-          command: npm init
+      # - run:
+      #     name: Init
+      #     command: npm init
       - run:
           name: Install Dependencies
           command: npm install  # or yarn install, depending on your setup
