@@ -35,27 +35,27 @@ jobs:
           name: npx jest Test
           command: npx jest
   deploy-to-gh-pages:
-      docker:
-        - image: cimg/base:stable
-      steps:
-        - checkout
-      - run:
-          name: Deploy to GitHub Pages
-          command: |
-            git config --global user.email "ricardofecarva@gmail.com"
-            git config --global user.name "ricardocarva"
-            current_branch="$CIRCLE_BRANCH"
-            git clone --branch=main https://github.com/ricardocarva/portfolio.git
-            cd portfolio
-            git fetch origin
-            if git ls-remote --heads origin "$current_branch" | grep -q "$current_branch"; then
-              # If it exists, switch to 'main' and merge the changes
-              git checkout main
-              git merge "$current_branch"
-            else
-              echo "Branch $current_branch doesn't exist on the remote repository."
-            fi
-            git push origin main
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+    - run:
+        name: Deploy to GitHub Pages
+        command: |
+          git config --global user.email "ricardofecarva@gmail.com"
+          git config --global user.name "ricardocarva"
+          current_branch="$CIRCLE_BRANCH"
+          git clone --branch=main https://github.com/ricardocarva/portfolio.git
+          cd portfolio
+          git fetch origin
+          if git ls-remote --heads origin "$current_branch" | grep -q "$current_branch"; then
+            # If it exists, switch to 'main' and merge the changes
+            git checkout main
+            git merge "$current_branch"
+          else
+            echo "Branch $current_branch doesn't exist on the remote repository."
+          fi
+          git push origin main
 
 
 # Orchestrate jobs using workflows
