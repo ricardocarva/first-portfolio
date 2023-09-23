@@ -23,6 +23,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update npm
+          command: sudo apt-get update
+      - run:
+          name: Install npm
+          command: sudo apt-get install npm
+      - run:
           name: Create file path
           command: mkdir -p /home/circleci/project
       - run:
@@ -31,12 +37,6 @@ jobs:
       - run:
           name: Init npm
           command: npm init
-      - run:
-          name: Update npm
-          command: sudo apt-get update
-      - run:
-          name: Install npm
-          command: sudo apt-get install npm
       - run:
           name: Install Dependencies
           command: npm install  # or yarn install, depending on your setup
