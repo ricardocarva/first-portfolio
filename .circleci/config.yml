@@ -24,7 +24,9 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: npm install  # or yarn install, depending on your setup
+          command: |
+          npm init
+          npm install  
       - run:
           name: Build Website
           command: npm run build  # Replace with your build command
