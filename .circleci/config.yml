@@ -46,7 +46,7 @@ jobs:
             ls -ltr
       - run:
           name: Check Links
-          command: node src/link-checker.js
+          command: pwd && node src/link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
