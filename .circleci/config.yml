@@ -40,7 +40,7 @@ jobs:
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
             git clone --branch=main https://github.com/ricardocarva/portfolio.git main
-            git checkout -b gh-main
+            git checkout -b main
             git remote set-url origin https://github.com/ricardocarva/portfolio.git
             cp -R dist/* main/
             cd main
