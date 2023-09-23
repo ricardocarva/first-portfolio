@@ -41,6 +41,7 @@ jobs:
             git config --global user.name "ricardocarva"
             git clone --branch=gh-pages https://github.com/ricardocarva/portfolio.git gh-pages
             git checkout -b gh-pages
+            git remote set-url origin https://github.com/ricardocarva/portfolio.git
             cp -R dist/* gh-pages/
             cd gh-pages
             git add .
