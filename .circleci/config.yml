@@ -39,7 +39,7 @@ jobs:
           command: |
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
-            current_branch=$(git rev-parse --abbrev-ref HEAD)
+            current_branch="$CIRCLE_BRANCH"
             git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
             cd gh-pages
             git add .
@@ -56,10 +56,9 @@ workflows:
     jobs:
       - build
       
-            #       cp -R dist/* main/
-            # cd main
-                        # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
+            # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
 
 
-            #       git checkout -b main
-            # git remote set-url origin https://github.com/ricardocarva/portfolio.git
+            #                 current_branch=$(git rev-parse --abbrev-ref HEAD)
+            # git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
+    
