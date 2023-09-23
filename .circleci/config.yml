@@ -39,10 +39,12 @@ jobs:
           command: |
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
-            git clone --branch=main https://github.com/ricardocarva/portfolio.git main
+            git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
+            cp -R dist/* gh-pages/
+            cd gh-pages
             git add .
             git commit -m "Deploy to GitHub Pages"
-            git push origin main
+            git push origin main:gh-pages
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
