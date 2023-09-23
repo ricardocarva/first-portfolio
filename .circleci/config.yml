@@ -35,6 +35,9 @@ jobs:
           name: Install npm
           command: sudo apt-get install npm
       - run:
+          name: Clear npm cache
+          command: npm cache clean --force
+      - run:
           name: Install Dependencies
           command: npm install html-proofer
       - run:
