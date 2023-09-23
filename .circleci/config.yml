@@ -28,33 +28,19 @@ jobs:
       - run:
           name: Install npm
           command: sudo apt-get install npm
-      # - run:
-      #     name: Create file path
-      #     command: mkdir -p /home/circleci/project
-      # - run:
-      #     name: Change workdirectory
-      #     command: cd /home/circleci/project
-      # - run:
-      #     name: Init npm
-      #     command: npm init
       - run:
           name: Install Dependencies
           command: npm install --save-dev jest # or yarn install, depending on your setup
-      # - run:
-      #     name: Build Website
-      #     command: npm run build  # Replace with your build command
       - run:
           name: npx jest Test
           command: npx jest
-      - run:
-          name: npm Test
-          command: npm test
       - run:
           name: Deploy to GitHub Pages
           command: |
             git config --global user.email "ricardofecarva@gmail.com"
             git config --global user.name "ricardocarva"
             git clone --branch=gh-pages https://github.com/ricardocarva/portfolio.git gh-pages
+            git checkout -b gh-pages
             cp -R dist/* gh-pages/
             cd gh-pages
             git add .
