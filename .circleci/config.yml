@@ -33,6 +33,7 @@ jobs:
           command: npm install html-proofer
       - run:
           name: Check Links
+          command:
             cd $CIRCLE_WORKING_DIRECTORY 
             node src/link-checker.js
 
