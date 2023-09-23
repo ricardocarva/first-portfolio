@@ -5,18 +5,6 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/configuration-reference/#executor-job
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "hello all"
-          command: "echo Hello, World!"
   build:
     docker:
       - image: cimg/base:stable  # Choose an appropriate Node.js version
@@ -39,60 +27,6 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
   build-and-deploy:
     jobs:
       - build
-      # - deploy-to-gh-pages:
-      #     requires:
-      #       - build
-                  # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
-            # cd gh-pages
-
-            # git clone --branch=main https://github.com/ricardocarva/portfolio.git gh-pages
-  # current_branch="$CIRCLE_BRANCH"
-  #           git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
-            # git merge "$current_branch"
-
-
-            #                 current_branch=$(git rev-parse --abbrev-ref HEAD)
-            # git clone --branch="$current_branch" https://github.com/ricardocarva/portfolio.git gh-pages
-    
-
-# git config --global user.email "ricardofecarva@gmail.com"
-# git config --global user.name "ricardocarva"
-# current_branch="$CIRCLE_BRANCH"
-# git clone --branch=main https://github.com/ricardocarva/portfolio.git
-# cd portfolio
-# git fetch origin
-# if [ "$current_branch" != "main" ]; then
-# git checkout -b "$current_branch" origin/"$current_branch"
-# git checkout main
-# git merge "$current_branch"
-# fi
-# git push origin/"$CIRCLE_BRANCH" main
-
-  # deploy-to-gh-pages:
-  #   docker:
-  #     - image: cimg/base:stable
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Deploy to GitHub Pages
-  #         command: |
-  #           git config --global user.email "ricardofecarva@gmail.com"
-  #           git config --global user.name "ricardocarva"
-  #           current_branch="$CIRCLE_BRANCH"
-  #           git clone --branch=main https://github.com/ricardocarva/portfolio.git
-  #           cd portfolio
-  #           git fetch origin
-  #           if git ls-remote --heads origin "$current_branch" | grep -q "$current_branch"; then
-  #             # If it exists, switch to 'main' and merge the changes
-  #             git checkout main
-  #             git merge "$current_branch"
-  #           else
-  #             echo "Branch $current_branch doesn't exist on the remote repository."
-  #           fi
-  #           git push origin main
