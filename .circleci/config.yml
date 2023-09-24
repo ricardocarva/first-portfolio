@@ -36,7 +36,7 @@ jobs:
           command: sudo apt-get install -y npm
       - run:
           name: Install Link Checker
-          command: sudp npm install -y broken-link-checker -g
+          command: sudo npm install -y broken-link-checker -g
       - run:
           name: Check Links
           command: blc index.html -ro
