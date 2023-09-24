@@ -38,7 +38,7 @@ jobs:
           name: Install Link Checker
           command: sudo npm install -g broken-link-checker-local 
       - run:
-          command: find -name "index.html"
+          command: pwd && find -name "index.html"
       - run:
           name: Check Links
           command: blcl index.html -ro
