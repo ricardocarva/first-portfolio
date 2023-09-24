@@ -39,7 +39,7 @@ jobs:
           command: npm install --save-dev link-checker
       - run:
           name: Check Links
-          command: node check-links.js
+          command: node link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
