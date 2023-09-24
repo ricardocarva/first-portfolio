@@ -25,7 +25,7 @@ jobs:
 
   link-check:
     docker:
-      - image: cimg/base:stable  # Choose an appropriate Node.js version
+      - image: cimg/node:20.7.0  # Choose an appropriate Node.js version
     steps:
       - checkout
       - run:
@@ -36,10 +36,10 @@ jobs:
           command: sudo apt-get install -y npm
       - run:
           name: Install Link Checker
-          command: npm install --save-dev -y link-checker
+          command: npm install broken-link-checker -g
       - run:
           name: Check Links
-          command: node src/link-checker.js
+          command: blc index.html -ro
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -51,12 +51,20 @@ workflows:
     jobs:
       - link-check
 
-      #       - run:
-      #     name: Update npm
-      #     command: sudo apt-get update
-      # - run:
-      #     name: Install npm
-      #     command: sudo apt-get install npm
-      # - run:
-      #     name: Clear npm cache
-      #     command: npm cache clean --force
+  # link-check:
+  #   docker:
+  #     - image: cimg/base:stable  # Choose an appropriate Node.js version
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Update npm
+  #         command: sudo apt-get update
+  #     - run:
+  #         name: Install npm
+  #         command: sudo apt-get install -y npm
+  #     - run:
+  #         name: Install Link Checker
+  #         command: npm install --save-dev -y link-checker
+  #     - run:
+  #         name: Check Links
+  #         command: node src/link-checker.js
