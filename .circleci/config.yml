@@ -25,7 +25,7 @@ jobs:
 
   check-links:
     docker:
-      - image: circleci/node:14  # Choose an appropriate Node.js version
+      - image: cimg/node:20.6  # Choose an appropriate Node.js version
     steps:
       - checkout
       - run:
