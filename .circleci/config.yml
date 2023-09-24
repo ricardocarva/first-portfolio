@@ -36,10 +36,10 @@ jobs:
           command: sudo apt-get install -y npm
       - run:
           name: Install Link Checker
-          command: sudo npm install -y broken-link-checker-local -g
+          command: sudo npm install -g broken-link-checker-local 
       - run:
           name: Check Links
-          command: ls && blcl index.html -o
+          command: blcl index.html -ro
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
