@@ -29,6 +29,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update npm
+          command: sudo apt-get update
+      - run:
+          name: Install npm
+          command: sudo apt-get install npm
+      - run:
           name: Install Link Checker
           command: npm install --save-dev link-checker
       - run:
