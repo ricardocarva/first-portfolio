@@ -39,7 +39,7 @@ jobs:
           command: sudo npm install -y broken-link-checker-local -g
       - run:
           name: Check Links
-          command: blcl index.html -o
+          command: ls && blcl index.html -o
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
