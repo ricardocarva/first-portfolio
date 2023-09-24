@@ -1,12 +1,12 @@
-const brokenLinkChecker = require('link-checker');
+const linkChecker = require('link-checker');
 
 function main() {
   const options = {
-    filterLevel: brokenLinkChecker.HtmlUrlChecker.ALL,
+    filterLevel: linkChecker.HtmlUrlChecker.ALL,
     excludeExternalLinks: true, // Set this to true to exclude external links
   };
 
-  const checker = new brokenLinkChecker.HtmlUrlChecker(options, {
+  const checker = new linkChecker.HtmlUrlChecker(options, {
     link: (result) => {
       if (result.broken) {
         console.error('Broken link:', result.url.resolved);
