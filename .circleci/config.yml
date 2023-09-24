@@ -15,10 +15,10 @@ jobs:
           command: sudo apt-get update
       - run:
           name: Install npm
-          command: sudo apt-get install npm
+          command: sudo apt-get install -y npm
       - run:
           name: Install Dependencies
-          command: npm install --save-dev jest
+          command: npm install --save-dev -y jest
       - run:
           name: npx jest Test
           command: npx jest
@@ -33,13 +33,13 @@ jobs:
           command: sudo apt-get update
       - run:
           name: Install npm
-          command: sudo apt-get install npm
+          command: sudo apt-get install -y npm
       - run:
           name: Install Link Checker
-          command: npm install --save-dev link-checker
+          command: npm install --save-dev -y link-checker
       - run:
           name: Check Links
-          command: node link-checker.js
+          command: node src/link-checker.js
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
