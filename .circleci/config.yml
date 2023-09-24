@@ -25,18 +25,9 @@ jobs:
 
   check-links:
     docker:
-      - image: cimg/node:20.6  # Choose an appropriate Node.js version
+      - image: node:14  # Choose an appropriate Node.js version
     steps:
       - checkout
-      - run:
-          name: Update npm
-          command: sudo apt-get update
-      - run:
-          name: Install npm
-          command: sudo apt-get install npm
-      - run:
-          name: Clear npm cache
-          command: npm cache clean --force
       - run:
           name: Install Dependencies
           command: npm install html-proofer
@@ -57,3 +48,13 @@ workflows:
   link-checker:
     jobs:
       - check-links
+
+      #       - run:
+      #     name: Update npm
+      #     command: sudo apt-get update
+      # - run:
+      #     name: Install npm
+      #     command: sudo apt-get install npm
+      # - run:
+      #     name: Clear npm cache
+      #     command: npm cache clean --force
