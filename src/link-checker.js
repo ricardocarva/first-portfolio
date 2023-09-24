@@ -1,4 +1,4 @@
-const brokenLinkChecker = require('broken-link-checker');
+const brokenLinkChecker = require('link-checker');
 
 function main() {
   const options = {
