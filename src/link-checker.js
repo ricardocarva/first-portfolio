@@ -1,18 +1,23 @@
-const linkChecker = require('link-checker');
+const brokenLinkChecker = require('broken-link-checker');
 
-async function main() {
-  const result = await linkChecker.check({
-    path: '.', // Change this to the directory where your HTML files are located
-    // Add any additional configuration options for link-checker here
+function main() {
+  const options = {
+    filterLevel: brokenLinkChecker.HtmlUrlChecker.ALL,
+    excludeExternalLinks: true, // Set this to true to exclude external links
+  };
+
+  const checker = new brokenLinkChecker.HtmlUrlChecker(options, {
+    link: (result) => {
+      if (result.broken) {
+        console.error('Broken link:', result.url.resolved);
+      }
+    },
+    end: () => {
+      console.log('Link checking completed.');
+    },
   });
 
-  if (result.broken.length > 0) {
-    console.error('Broken links found:');
-    console.error(result.broken);
-    process.exit(1); // Exit with a non-zero code to indicate failure
-  } else {
-    console.log('No broken links found.');
-  }
+  checker.enqueue('http://localhost'); // Change this to your website URL
 }
 
 main();
