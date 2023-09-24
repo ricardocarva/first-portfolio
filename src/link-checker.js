@@ -1,16 +1,18 @@
-const HTMLProofer = require('html-proofer');
+const linkChecker = require('link-checker');
 
-const proofer = new HTMLProofer({
-  directory: 'build', // Replace with the path to your built HTML files
-  checkExternal: true,
-  "url-ignore": ['/example-ignore'], // Optional: specify URLs to ignore
-});
+async function main() {
+  const result = await linkChecker.check({
+    path: '.', // Change this to the directory where your HTML files are located
+    // Add any additional configuration options for link-checker here
+  });
 
-proofer.run((err, output) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
+  if (result.broken.length > 0) {
+    console.error('Broken links found:');
+    console.error(result.broken);
+    process.exit(1); // Exit with a non-zero code to indicate failure
   } else {
-    console.log('Link checker completed successfully.');
+    console.log('No broken links found.');
   }
-});
+}
+
+main();
