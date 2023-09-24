@@ -25,7 +25,7 @@ jobs:
 
   check-links:
     docker:
-      - image: cimg/base:stable  # Choose an appropriate Node.js version
+      - image: circleci/node:14  # Choose an appropriate Node.js version
     steps:
       - checkout
       - run:
@@ -40,6 +40,10 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install html-proofer
+      - run:
+          name: Verify html-proofer installation
+          command: |
+            /usr/local/bin/node -e "require('html-proofer')"
       - run:
           name: Check Links
           command: node src/link-checker.js
